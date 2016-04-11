@@ -1,9 +1,3 @@
-/*!
- * common模块提供reloan 的所有基础功能以及环境初始化
- * @module common
- * @author 周一平  modify by zhangcaifeng
- * @history 2015-6-10 add
- */
 define([
     "zepto",
     "fastclick",
@@ -35,32 +29,7 @@ define([
     init,
     debug
 ) {
-    /**
-     * 定义与Native相关的事件监听
-     */
     $$.EventListener = {
-    	/**
-    	 * 页面回退刷新
-    	 * */
-    	onRefresh: function(){
-    		Native.getUserInfo(function(data){
-                Utils.data(Constant.DataKey.USER_LOGIN_INFO, data);
-                //back to home
-                Native.backModule({
-                    moduleName: Constant.MODULE_NAME.home,
-                    url: Constant.index_page
-                });
-                
-            });
-    	},
-        /**
-         * 返回（点击返回按钮或Android物理返回键）
-         * @param url
-         */
-        onBack: function (url,data) {
-        	location.reload();
-        },
-        pageDidAppear: function(){}
     }
 
     // 判断是否已经登录
